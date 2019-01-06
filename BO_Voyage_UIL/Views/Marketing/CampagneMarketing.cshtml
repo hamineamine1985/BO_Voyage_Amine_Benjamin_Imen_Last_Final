@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BO_Voyage_UIL.Models.CampaignModels>
+
+<link href="~/Content/Marketing.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "CampagneMarketing";
+    Layout = "~/Views/Shared/_Layout_Marketing.cshtml";
+}
+
+<h2>Campagne Marketing</h2>
+
+<p>
+    @Html.ActionLink("Créer nouvelle campagne", "Create_CampagneMarketing")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateLimite)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateLimite)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier", "Edit_CampagneMarketing", new { id = item.Id }) |
+                @Html.ActionLink("Détails", "Detail_CampagneMarketing", new { id = item.Id }) |
+                @Html.ActionLink("Supprimer", "Delete_CampagneMarketing", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Retour Accueil", "Index")

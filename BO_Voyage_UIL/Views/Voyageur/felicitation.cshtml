@@ -1,0 +1,53 @@
+﻿@model BO_Voyage_UIL.Controllers.AcceptVoyajeursModel
+
+@{
+    ViewBag.Title = "felicitation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Confirmation</h2>
+
+<div>
+    <h4>Nous vous confirmons votre réservation. Nous vous souhaitons un bon voyage.</h4>
+    <h4>Espérons vous revoir bientôt.</h4>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.HiddenFor(model => model.IdCli)
+            </dt>
+
+            <dd>
+                @Html.HiddenFor(model => model.IdCli)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Prix)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Prix)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NbVoyageurs)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NbVoyageurs)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DecriptionVoyage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DecriptionVoyage)
+            </dd>
+
+        </dl>
+</div>
+<p>
+  
+    @Html.ActionLink("Retour accueil", "Index","Valider",new {id= Model.IdCli }, null)
+</p>

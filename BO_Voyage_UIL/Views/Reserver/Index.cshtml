@@ -1,0 +1,61 @@
+﻿@model List<SelectListItem>
+<link href="~/HtmlBo/assets/css/main.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*  @Html.DisplayNameFor(model => model.Nom)*@
+        </th>
+        <th></th>
+    </tr>
+    @*@Html.DropDownList("Direction", new SelectList(listItems), new { onchange = "getAlldata()" })*@
+    @*@{List<SelectListItem> listItems = new List<SelectListItem>(); }*@
+    @foreach (var item in Model)
+    {
+        //listItems.Add(new SelectListItem
+        //{
+        //    Text = item.Nom,
+        //    Value = item.Id.ToString()
+        //});
+        @*<tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>*@
+    }
+
+</table>
+@Html.DropDownList("Continents", Model, "Sélectioner un continent")
+@*@Html.DropDownListFor(m=>m, Model, "ddd")*@
+<div id="body">
+    <div id="divPays"> </div>
+    <div id="divRegs"> </div>
+    <div id="divVoys"> </div>
+    <div id="detail"> </div>
+</div>
+<div id="footer">
+    <div id="payement"> </div>
+    <div id="message"> </div>
+</div>
+@section AjaxScript{
+
+   
+    @*@Ajax.ActionLink("Test", "Test", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "divPays", InsertionMode = InsertionMode.Replace })@Ajax.ActionLink("Mettre à jour", "Pays/1", new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "divPays", InsertionMode = InsertionMode.Replace })*@
+    <script>       
+        var Controleur = "Reserver"
+    </script>
+    <script src="~/Scripts/Reserver.js"></script>
+
+
+}

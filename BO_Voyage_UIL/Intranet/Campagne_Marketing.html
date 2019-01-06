@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/index.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <link href="Campagne_Maketing.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+
+    <title>Marketing, campagne commerciale - Promotion Japon</title>
+</head>
+
+<h1 style="margin-left: 41%">BOVoyage.com</h1>
+<h2 style="margin-left: 42%">Service Intranet</h2>
+
+<body>
+    <div class="nav-menu top" style="background-color: rgba(238, 167, 20, 0.70)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-dark navbar-expand-lg">
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"> <a class="nav-link" href="Accueil_Marketing.html">Accueil<span class="sr-only">(current)</span></a> </li>
+                                <li class="nav-item"><a href="Accueil_Marketing_1.html" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="jumbotron text-center">
+            <h1>Campagne commerciale - Promotion Japon - fin avril 2019</h1>
+            <h2>Merci d'utiliser les filtres suivants afin de constituer votre liste de clients dans le cadre de votre campagne </h2>
+        </div>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="custom-combo">
+                        <select id="reg" class="form-control input-lg">
+                            <option>Destinations</option>
+                            <optgroup label="Continent">
+                                <option>Afrique</option>
+                                <option>Amériques</option>
+                                <option>Asie</option>
+                                <option>Europe</option>
+                                <option>Océanie</option>
+                            </optgroup>
+                            <optgroup label="Pays">
+                                <option>Egypte</option>
+                                <option>Kenya</option>
+                                <option>Canada</option>
+                                <option>Etats-Unis</option>
+                                <option>Argentine</option>
+                                <option>Japon</option>
+                                <option>Thaïlande</option>
+                                <option>Autriche</option>
+                                <option>Irlande</option>
+                                <option>Russie</option>
+                                <option>Australie</option>
+                                <option>Nouvelle-Zélande</option>
+                            </optgroup>
+                            <optgroup label="Régions">
+                                <option>La Vallée des Rois</option>
+                                <option>Le Mont Kenya</option>
+                                <option>Le Québec</option>
+                                <option>La Colombie-Britannique</option>
+                                <option>L'Oregon</option>
+                                <option>La Louisiane</option>
+                                <option>La Mesopotamie (Argentine)</option>
+                                <option>Kyoto</option>
+                                <option>Hokkaido</option>
+                                <option>Ko Samui</option>
+                                <option>Le Tyrol Autrichien</option>
+                                <option>Le Comté de Kerry</option>
+                                <option>Le Connemara</option>
+                                <option>La Côte Est Australienne</option>
+                                <option>Milford Sound</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="custom-combo">
+                        <select id="typevoy" class="form-control input-lg">
+                            <option>Type de voyage</option>
+                            <option>Circuit</option>
+                            <option>Découverte</option>
+                            <option>Farniente</option>
+                            <option>Familial</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+
+                    <div class="custom-combo">
+                        <select id="agecli" class="form-control input-lg">
+                            <option>Tranche d'âge</option>
+                            <option>18-30</option>
+                            <option>31-45</option>
+                            <option>46-65</option>
+                            <option>65 et +</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+        </div> <!--Contient les listes déroulantes qu'on va utiliser pour afficher les filtres-->
+        <div class="container">
+            <table class="table text-center">
+                <thead class="text-center">
+                    <tr>
+                        <th>Sélectionner</th>
+                        <th id="nom">Nom</th>
+                        <th id="prenom">Prénom</th>
+                        <th id="email">Email</th>
+                    </tr>
+                </thead>
+                <tbody id="liste"></tbody> <!--Exemples bidons pour voir la table sur la longueur (scroll etc.)-->
+            </table>
+            <button id="btn1" type="button" class="btn btn-primary btn-lg">Supprimer la sélection</button>
+            <button id="btn2" type="button" class="btn btn-warning btn-lg">Vider la liste</button>
+            <button id="btn3" type="button" class="btn btn-success btn-lg">Sauvegarder</button>
+        </div>
+    </div>
+
+    <div>
+        <hr />
+        <footer style="text-align:center">
+            <p>&copy; 2018 - BOVoyage.com : Les vacances au prix de vos rêves</p>
+        </footer>
+    </div>
+    <script src="Scripts/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+﻿@model BO_Voyage_UIL.Controllers.LoginModels
+
+@{
+    ViewBag.Title = "ConfirmationDossier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    Confirmation de votre réservation<h2>
+        <h5>Nous vous confirmons la réservation de votre voyage.</h5>
+        <h5>Un e-mail contenant le mot de passe pour accéder à votre dossier de réservation vous parviendra dans votre boîte mail.</h5>
+
+        <br />
+        <hr />
+
+        <div>
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Login)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Login)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Password)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Password)
+                </dd>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Retour Accueil", "Index", "Home")
+        </p>

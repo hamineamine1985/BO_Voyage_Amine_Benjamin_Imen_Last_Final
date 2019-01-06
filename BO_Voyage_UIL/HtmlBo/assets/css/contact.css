@@ -1,0 +1,293 @@
+﻿body {
+    -webkit-perspective: 800px;
+    perspective: 800px;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Gudea', sans-serif;
+    background: linear-gradient(45deg, rgba(30,87,153,1) 0%,rgba(89,148,202,1) 62%,rgba(95,154,207,0.7) 68%,rgba(125,185,232,0) 100%);
+    /* Old browsers */
+    /* FF3.6+ */
+    /* Chrome,Safari4+ */
+    /* Chrome10+,Safari5.1+ */
+    /* Opera 11.10+ */
+    /* IE10+ */
+    /*background: linear-gradient(135deg, #EA5C54 0%, #bb6dec 100%);*/
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EA5C54 ', endColorstr='#bb6dec',GradientType=1 );
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+
+/*------------------- STYLE DU FORM----------------------------*/
+
+html {
+    background: url(http://phutora.com/img/friends3.jpg) no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-color: #000;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    color: #C0C0C0;
+    font-family: Arial, san-serif;
+}
+
+
+/* Contact Form Styles */
+h1 {
+    margin: 10px 0 0 0;
+}
+
+h4 {
+    margin: 0 0 20px 0;
+}
+
+#contact-form {
+    background-color: rgba(72,72,72,0.7);
+    padding: 10px 20px 30px 20px;
+    max-width: 100%;
+    float: left;
+    left: 50%;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: -260px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+}
+
+    #contact-form input,
+    #contact-form select,
+    #contact-form textarea,
+    #contact-form label {
+        font-size: 15px;
+        margin-bottom: 2px;
+        font-family: Arial, san-serif;
+    }
+
+    #contact-form input,
+    #contact-form select,
+    #contact-form textarea {
+        width: 100%;
+        background: #fff;
+        border: 0;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        margin-bottom: 25px;
+        padding: 5px;
+    }
+
+        #contact-form input:focus,
+        #contact-form select:focus,
+        #contact-form textarea:focus {
+            background-color: #E5E6E7;
+        }
+
+    #contact-form textarea {
+        width: 100%;
+        height: 150px;
+    }
+
+    #contact-form button[type="submit"] {
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background: #991D57;
+        background-image: linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+        background-image: -moz-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+        background-image: -webkit-linear-gradient(bottom, #8C1C50 0%, #991D57 52%);
+        color: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+        #contact-form button[type="submit"]:hover {
+            background-image: linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+            background-image: -moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+            background-image: -webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
+            -webkit-transition: background 0.3s ease-in-out;
+            -moz-transition: background 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #contact-form button[type="submit"]:active {
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+        }
+
+input:required, textarea:required {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+}
+
+#contact-form .required {
+    font-weight: bold;
+    color: #E5E6E7;
+}
+
+/* Hide success/failure message
+   (especially since the php is missing) */
+#failure, #success {
+    color: #6EA070;
+    display: none;
+}
+
+/* Make form look nice on smaller screens */
+@media only screen and (max-width: 580px) {
+    #contact-form {
+        left: 3%;
+        margin-right: 3%;
+        width: 88%;
+        margin-left: 0;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+}
+
+/*------------------- VENANT DE MENU.CSS (HEADER)----------------------------*/
+
+#header {
+    background-color: transparent;
+    color: #fdd1d1;
+    cursor: default;
+    height: 3.25em;
+    left: 0;
+    line-height: 3.25em;
+    position: fixed;
+    text-align: right;
+    top: 1em;
+    width: 100%;
+    z-index: 10001;
+    padding: 0 1.5em;
+}
+
+    #header.alt {
+        top: 0;
+        background: #F64747;
+    }
+
+    #header .logo {
+        display: inline-block;
+        height: inherit;
+        left: 1.5em;
+        line-height: inherit;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 0;
+    }
+
+        #header .logo a {
+            font-size: 1.25em;
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+            #header .logo a:hover {
+                color: #fff;
+            }
+
+        #header .logo span {
+            font-weight: 300;
+            font-size: .8em;
+            color: #FFF;
+        }
+
+    #header > a {
+        -moz-transition: color 0.2s ease-in-out;
+        -webkit-transition: color 0.2s ease-in-out;
+        -ms-transition: color 0.2s ease-in-out;
+        transition: color 0.2s ease-in-out;
+        display: inline-block;
+        color: inherit;
+        text-decoration: none;
+    }
+
+        #header > a[href="#menu"] {
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 100%;
+            height: 2.5em;
+            width: 2.5em;
+            line-height: 2.5em;
+            color: #FFF;
+            text-align: center;
+        }
+
+            #header > a[href="#menu"]:before {
+                content: "";
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                font-family: FontAwesome;
+                font-style: normal;
+                font-weight: normal;
+                text-transform: none !important;
+            }
+
+            #header > a[href="#menu"]:hover {
+                color: rgba(255, 255, 255, 0.25);
+                background: none;
+                box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+            }
+
+            #header > a[href="#menu"]:before {
+                margin: 0;
+            }
+
+            #header > a[href="#menu"] span {
+                display: none;
+            }
+
+@media screen and (max-width: 736px) {
+
+    #header > a {
+        padding: 0 0.5em;
+    }
+}
+
+@media screen and (max-width: 980px) {
+
+    body.subpage {
+        padding-top: 50px;
+    }
+
+    #header {
+        height: 50px;
+        line-height: 50px;
+    }
+
+        #header > h1 {
+            left: 1em;
+        }
+
+            #header > h1 a {
+                font-size: 1em;
+            }
+}
+
+@media screen and (max-width: 480px) {
+
+    #header {
+        min-width: 320px;
+        top: 0;
+        font-size: .9em;
+        background: rgba(0, 0, 0, 0.9);
+    }
+}

@@ -1,0 +1,18 @@
+﻿@model BO_Voyage_DTO.dtoListeVoyage
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Nom)</h4>
+    <hr />
+
+   <img class="imgDetail" src="@Html.DisplayFor(model => model.Url)" />
+    <br /> <br />  
+    <div id="textDetail"> Détail :<br /> <br />@Html.DisplayFor(model => model.Description)<br /> <br /></div>
+    <div id="dateDépart"> Date départ :@Html.DisplayFor(model => model.DateDepart)<br /> <br /></div>
+    <div id="dateRetour"> Date de retour : @Html.DisplayFor(model => model.DateRetour)<br /> <br /> </div>
+    <div id="prix"> Prix TTC : @Html.DisplayFor(model => model.Prix) €   </div>
+  
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,5 @@
+http://localhost:56162/Reserver/pays/IdC=1
+
+http://localhost:56162/Reserver/pays/1
+
+http://localhost:56162/Reserver/Regions/1/1

@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Nous contacter";
+}
+<link href="~/Content/Contact.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<h2>@ViewBag.Message</h2><br />
+
+
+<div class="container1">
+    <div style="text-align:center">
+        <h2>Formulaire de contact</h2>
+        <p>Venez prendre un café ou laissez-nous un message :</p>
+    </div>
+    <div class="row1">
+        <div class="column1">
+            <img id="image" src="http://www.lumieresdelaville.net//wp-content/uploads/2015/07/intersection2.jpg" style="width:150%">
+        </div>
+        <div class="column1">
+            <label for="fname">Nom</label><tr />
+            <input type="text" id="fname" name="nom" placeholder="Votre nom..">
+            <label for="lname">Prénom</label><tr />
+            <input type="text" id="lname" name="prenom" placeholder="Votre prénom..">
+            <label for="country">Pays</label><tr />
+            <select id="country" name="pays">
+                <option value="france">France</option>
+                <option value="belgique">Belgique</option>
+                <option value="luxembourg">Luxembourg</option>
+            </select>
+            <label for="subject">Sujet</label>
+            <textarea id="subject" name="subject" placeholder="Ecrivez votre commentaire.." style="height:170px"></textarea>
+            <input type="submit" value="Envoyer" />
+        </div>
+    </div>
+</div>
+<br />
+<address>
+    Adresse : <br />
+    <br />
+    33, rue des Capucins<br />
+    75000 PARIS Cedex 14<br />
+    <br />
+    <strong title="Phone">Téléphone :</strong><br />
+    <img src="https://www.lidl-voyages.fr/shared-cs/lidl-catalog/images/free-phone.png" />
+</address>
+
+<address>
+    <strong>Service clients :</strong>   <a href="mailto:Support@example.com">service.clients@bovoyage.com</a>
+</address>

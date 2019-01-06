@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Marketing.cshtml";
+}
+
+<link href="~/Content/Marketing.css" rel="stylesheet" />
+
+@{
+
+    <a>
+        @using (Html.BeginForm("NouvellesDestinations", "Marketing", FormMethod.Get))
+        {
+            <div>
+                <i class=""></i>
+                <input id="input1" type="submit" class="notification" value="Ajout nouvelles destinations" />
+            </div>
+        }
+    </a>
+
+    <a>
+        @using (Html.BeginForm("Listereservations", "Marketing", FormMethod.Get))
+        {
+            <div>
+                <i class=""></i>
+                <input id="input1" type="submit" class="notification1" value="Liste des réservations" />
+            </div>
+        }
+    </a>
+    <a>
+        @using (Html.BeginForm("CampagneMarketing", "Marketing", FormMethod.Get))
+        {
+            <div>
+                <input id="input1" type="submit" class="notification2" value="Campagne Marketing" />
+            </div>
+        }
+    </a>
+
+}
+

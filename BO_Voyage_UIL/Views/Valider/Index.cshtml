@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BO_Voyage_UIL.Models.DossierModels>
+
+@{
+    ViewBag.Title = "Mon Compte";
+}
+
+<h2>Mes résevations</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client)  @*a supprimer*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voyage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cb)    @*a supprimer*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbVoyageur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Etat)  @*a modifier vert  rouge  orange*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voyageur)  @*a supprimer*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prix)   @*a supprimer*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voyage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NbVoyageur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Etat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voyageur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prix)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit_Dossier", new { id=item.Client }) |*@
+            @Html.ActionLink("Valider", "Valider_Dossier", new { idCli = item.Client, id = item.Id }) |
+            @Html.ActionLink("Supprimer", "Delete_Dossier", new { idCli = item.Client, id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

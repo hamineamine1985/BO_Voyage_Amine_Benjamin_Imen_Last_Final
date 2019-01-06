@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/index.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <link href="Campagne_Maketing.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+
+    <h1 style="margin-left: 41%">BOVoyage.com</h1>
+    <h2 style="margin-left: 42%">Service Intranet</h2>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            margin: 0 -16px;
+        }
+
+        .col-25 {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+        }
+
+        .col-50 {
+            -ms-flex: 50%; /* IE10 */
+            flex: 50%;
+        }
+
+        .col-75 {
+            -ms-flex: 75%; /* IE10 */
+            flex: 75%;
+        }
+
+        .col-25,
+        .col-50,
+        .col-75 {
+            padding: 0 16px;
+        }
+
+        .container1 {
+            background-color: #f2f2f2;
+            padding: 5px 20px 15px 20px;
+            border: 1px solid lightgrey;
+            border-radius: 3px;
+        }
+
+        input[type=text] {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .icon-container {
+            margin-bottom: 20px;
+            padding: 7px 0;
+            font-size: 24px;
+        }
+
+        .btn1 {
+            background-color: lightblue;
+            color: white;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .btn1:hover {
+            background-color: ;
+        }
+
+        a {
+            color: #2196F3;
+        }
+
+        hr {
+            border: 1px solid lightgrey;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+        @media (max-width: 800px) {
+            .row {
+                flex-direction: column-reverse;
+            }
+
+            .col-25 {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-menu top" style="background-color: rgba(238, 167, 20, 0.70)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-dark navbar-expand-lg">
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"><a class="nav-link" href="Accueil_Marketing.html">Accueil<span class="sr-only">(current)</span></a> </li>
+                                <li class="nav-item"><a href="Accueil_Marketing_1.html" class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-75">
+            <div class="container1">
+                <form action="/action_page.php">
+                    <div class="row">
+                        <div class="col-50">
+                            <h3>Ajouter une nouvelle destination</h3>
+
+                            <hr />
+
+                            <label for="fname"><i class="fa fa-globe"></i>  Continent</label>
+                            <input type="text" id="cont" name="continent" placeholder="">
+                            <label for="email"><i class="fa fa-globe"></i>  Pays</label>
+                            <input type="text" id="pays" name="pays" placeholder="">
+                            <label for="adr"><i class="fa fa-map-signs"></i>  Régions</label>
+                            <input type="text" id="reg" name="address" placeholder="">
+                            <label for="city"><i class="fa fa-map"></i>  Intitulé destination</label>
+                            <input type="text" id="dest" name="city" placeholder="">
+
+                            <hr />
+
+                            <label for="city"><i class="fa fa-check-square"></i>  Type de voyage</label>
+                            <select id="typevoy" class="form-control input-lg">
+                                <option>Circuit</option>
+                                <option>Découverte</option>
+                                <option>Farniente</option>
+                                <option>Familial</option>
+                            </select>
+
+                            <hr />
+
+                            <div class="row">
+                                <div class="col-50">
+                                    <label for="state"> Date de départ</label>
+                                    <input type="date" id="state" name="state" placeholder="">
+                                </div>
+                                <div class="col-50">
+                                    <label for="zip"> Date de retour</label>
+                                    <input type="date" id="zip" name="zip" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top:19px" class="col-50">
+                            <br />
+                            <br />
+                            <label for="price"><i class="fa fa-money"></i>  Prix</label>
+                            <input type="text" id="price" name="price" placeholder="">
+                            <label for="img"><i class="fa fa-photo"></i>  Ajouter une photo</label>
+                            <input type="text" id="img" name="image" placeholder="">
+                            <div class="row">
+                                <div class="col-50">
+                                    <hr />
+                                    <label for="description"><i class="fa fa-align-left"></i>   Descriptif</label>
+                                    <textarea type="text" id="description" name="descriptif" placeholder="" style="height:300px" ; width=60%></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Ajouter la destination" class="btn1">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <hr />
+        <footer style="text-align:center">
+            <p>&copy; 2018 - BOVoyage.com : Les vacances au prix de vos rêves</p>
+        </footer>
+    </div>
+
+</body>
+</html>

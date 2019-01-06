@@ -1,0 +1,70 @@
+﻿@using BO_Voyage_UIL.Controllers
+@model ViewVoyajeurModel
+
+@{
+    ViewBag.Title = "Suppression voyageur";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>VoyageurModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Voyageur.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voyageur.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voyageur.Prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voyageur.Prenom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voyageur.DateNaissance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voyageur.DateNaissance)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.Ids.idCli)
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.Ids.id)
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.Ids.idVoyageur)
+
+            </div>
+        </div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Page précédente", "Index", new { id = Model.Ids.id, idCli = Model.Ids.idCli })
+        </div>
+    }
+</div>

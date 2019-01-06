@@ -1,0 +1,86 @@
+﻿@model IEnumerable<BO_Voyage_DTO.DtoDossier>
+
+<link href="~/Content/Marketing.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Listereservations";
+    Layout = "~/Views/Shared/_Layout_Marketing.cshtml";
+}
+
+<h2>Liste des réservations</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Voyage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbVoyageur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NbVoyageur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prix)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Voyage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NbVoyageur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NbVoyageur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prix)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Modifier", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Détails", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })*@
+                </td>
+            </tr>
+        }
+
+
+
+    </table>
+}
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Valider" class="btn btn-default" style="margin-left:95%" />
+    </div>
+</div>
+@Html.ActionLink("Page Accueil", "Index")

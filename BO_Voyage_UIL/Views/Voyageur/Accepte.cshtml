@@ -1,0 +1,50 @@
+﻿@model BO_Voyage_UIL.Controllers.AcceptVoyajeursModel
+
+@{
+    ViewBag.Title = "Paiement";
+}
+
+<h2>Accepte</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbVoyageurs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbVoyageurs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DecriptionVoyage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DecriptionVoyage)
+        </dd>
+
+    </dl>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Payer" class="btn btn-default" />
+    </div>
+</div>
+}
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id, idCli = Model.IdCli }) |*@
+    @Html.ActionLink("Page précédente", "Index", new {  id = Model.Id, idCli = Model.IdCli })
+</p>

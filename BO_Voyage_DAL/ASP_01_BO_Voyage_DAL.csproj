@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E2E7F469-0E07-4A3B-B8A5-C26E7D1968C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BO_Voyage_DAL</RootNamespace>
+    <AssemblyName>BO_Voyage_DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Campagne.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CampagneClient.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarteBancaire.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Continent.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data_Marketing.cs" />
+    <Compile Include="Data_Valider.cs" />
+    <Compile Include="Data_Verfier.cs" />
+    <Compile Include="Dossier.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Filtre_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClient_Email_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetClient_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDossier_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetListeContinent_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetListePays_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetListeRegion_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetListeVoyage_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetPrice_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetVoyageur_Price_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBoexpress.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBoexpress.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBoexpress.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBoexpress.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBoexpress.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBoexpress.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pay.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetCb_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetDossier_ClientInfo_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetDossier_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetPrice_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetVoyageClient_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetVoyageur_Price_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetVoyage_Result.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Voyage.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Voyageur.cs">
+      <DependentUpon>ModelBo.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelBo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBo.edmx</DependentUpon>
+      <LastGenOutput>ModelBo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelBo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBo.edmx</DependentUpon>
+      <LastGenOutput>ModelBo.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelBoexpress.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBoexpress.edmx</DependentUpon>
+      <LastGenOutput>ModelBoexpress.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelBoexpress.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBoexpress.edmx</DependentUpon>
+      <LastGenOutput>ModelBoexpress.cs</LastGenOutput>
+    </Content>
+    <Content Include="SQL\03_Data_Function.sql" />
+    <Content Include="SQL\04_Data_ProcStoc.sql" />
+    <Content Include="SQL\02_Data.sql" />
+    <Content Include="SQL\01_DataBase.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="ModelBoexpress.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBoexpress.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="ModelBo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelBo.edmx.diagram">
+      <DependentUpon>ModelBo.edmx</DependentUpon>
+    </None>
+    <None Include="ModelBoexpress.edmx.diagram">
+      <DependentUpon>ModelBoexpress.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BO_Voyage_DTO\ASP_03_BO_Voyage_DTO.csproj">
+      <Project>{67473023-a371-4e71-921c-f1c089379991}</Project>
+      <Name>ASP_03_BO_Voyage_DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

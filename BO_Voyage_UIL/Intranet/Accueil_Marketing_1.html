@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/index.css" rel="stylesheet" />
+
+    <title>BOVoyage.com</title>
+</head>
+
+<h1 style="margin-left: 41%">BOVoyage.com</h1>
+<h2 style="margin-left: 42%">Service Intranet</h2>
+
+<style>
+    body {
+        font-family: 'EB Garamond', serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+        border-radius:5px;
+    }
+
+        /* Add a background color when the inputs get focus */
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+    /* Set a style for all buttons */
+    button {
+        background-color: lightblue;
+        color: black;
+        padding: 14px 20px;
+        margin: inherit;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+        border-radius: 5px;
+        float: right;
+    }
+
+        button:hover {
+            opacity: 1;
+        }
+
+    /* Add padding to container elements */
+    .container {
+        padding: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: #474e5d;
+        padding-top: 50px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* Style the horizontal ruler */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* The Close Button (x) */
+    .close {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: #f44336;
+            cursor: pointer;
+        }
+
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 300px) {
+        .cancelbtn, .signupbtn {
+            width: 100%;
+        }
+    }
+</style>
+<body>
+    <div class="nav-menu top" style="background-color: rgba(238, 167, 20, 0.70)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-dark navbar-expand-lg">
+                        <div class="collapse navbar-collapse" id="navbar">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"> <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a> </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="modal-content">
+        <div class="container">
+            <h1>Identification</h1>
+            <p>Merci de saisir votre identifiant et mot de passe</p>
+            <hr>
+            <label for="email"><b>E-mail</b></label>
+            <input type="text" placeholder="Saisir e-mail" name="email" required>
+
+            <label for="psw"><b>Mot de Passe</b></label>
+            <input type="password" placeholder="Saisir Mot de passe" name="psw" required>
+
+            <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Mémoriser mes informations
+            </label>
+
+
+            <div class="bouton">
+                <button type="submit" class="signupbtn" onclick="document.location.href='Accueil_Marketing.html';">Connexion</button>
+            </div>
+        </div>
+    </form>
+
+    <div>
+        <hr />
+        <footer style="text-align:center">
+            <p>&copy; 2018 - BOVoyage.com : Les vacances au prix de vos rêves</p>
+        </footer>
+    </div>
+
+</body>
+</html>

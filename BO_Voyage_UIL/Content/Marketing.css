@@ -1,0 +1,114 @@
+﻿body {
+    font-family: "EB Garamond", serif;
+}
+
+.notification {
+    background-color: #3f3b36;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    width: 200%;
+    margin-top: 8%;
+    margin-left: 7%;
+}
+
+    .notification:hover {
+        background: #922743;
+    }
+
+    .notification .badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+    }
+
+.notification1 {
+    background-color: #3f3b36;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    width: 200%;
+    margin-top: 10%;
+    margin-left: 7%;
+}
+
+    .notification1:hover {
+        background: #922743;
+    }
+
+    .notification1 .badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+    }
+
+.notification2 {
+    background-color: #3f3b36;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 5px;
+    width: 200%;
+    margin-top: 10%;
+    margin-left: 7%;
+}
+
+    .notification2:hover {
+        background: #922743;
+    }
+
+    .notification2 .badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+    }
+
+.nav-menu {
+    background: #922743;
+    height: 30px;
+}
+
+.btn {
+    background-color: #3f3b36;
+    color: whitesmoke;
+}
+
+    .btn:hover {
+        background: #922743;
+        color: whitesmoke;
+    }
+
+.btn1 {
+    margin-left: 1500%;
+    color: whitesmoke;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#input1 {
+    max-width: 80%;
+}

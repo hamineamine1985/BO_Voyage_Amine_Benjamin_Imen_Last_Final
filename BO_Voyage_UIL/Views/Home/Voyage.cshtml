@@ -1,0 +1,15 @@
+﻿@using BO_Voyage_UIL.Controllers
+@model ListeVoyageModel
+
+<div style="text-align:center">
+    <h4>@Html.DisplayFor(model => model.Nom)</h4>
+    <hr />
+
+    <img class="imgDetail" src="@Html.DisplayFor(model => model.Url)" />
+    <br /> <br />
+    <div id="textDetail"> Détail :<br /> <br />@Html.DisplayFor(model => model.Description)<br /> <br /></div>
+    <div id="dateDépart"> Date de départ : @Html.DisplayFor(model => model.DateDepart)<br /> <br /></div>
+    <div id="dateRetour"> Date de retour : @Html.DisplayFor(model => model.DateRetour)<br /> <br /> </div>
+    <div id="prix"> Prix TTC : @Html.DisplayFor(model => model.Prix) €   </div>
+</div>
+<br /><br />

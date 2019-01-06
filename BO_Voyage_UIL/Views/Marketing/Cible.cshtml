@@ -1,0 +1,147 @@
+﻿@using  BO_Voyage_UIL.Controllers
+@model ViewClientModel
+@{
+    ViewBag.Title = "Cible";
+}
+<h2>Cible</h2>
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+@using (Html.BeginForm("Cible", "Marketing", FormMethod.Post, new { id = "formCible" }))
+{
+    @Html.AntiForgeryToken()
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.clientModels.FirstOrDefault().Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clientModels.FirstOrDefault().Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clientModels.FirstOrDefault().Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clientModels.FirstOrDefault().Client)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.clientModels.FirstOrDefault().DateNaissance)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.motdepasse)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.identifiant)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.clientModels.FirstOrDefault().cibler)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.clientModels)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateNaissance)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.motdepasse)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.identifiant)
+                    </td>*@
+                <td>
+                    <div class="form-group">
+                        <input class="cible" type="checkbox" name="cibler" />
+                        <input class="cible" type="hidden" name="Id" value="@item.Id" />
+                        @*   <div class="checkbox">  </div>*@
+                        @*@Html.EditorFor(modelItem => item.cibler)
+                            @Html.HiddenFor(modelItem => item.Id);*@
+                    </div>
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.cibler)
+                    </td>*@
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>*@
+            </tr>
+        }
+    </table>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input id="valider" type="submit" value="Enregistrer" class="btn btn-default" />
+        </div>
+    </div>
+   
+      
+}
+
+@Html.ActionLink("page précédente", "detail_campagnemarketing", "Marketing", new { id = Model.id }, null)
+    <div id="message">
+
+    </div>
+
+
+
+@section AjaxScript{
+    <script>
+        $(document).ready(function () {
+
+            // $('#btnSubmit')    alert('SaveDossierHandler   0');
+            $('#formCible').submit(function (event) {  //submit // $('#btnSubmit').click(function (data) {
+                //  data.preventDefault();
+                $("#message").empty();
+                var clients = [];
+                $('input[type=checkbox]:checked+input').each(function () { clients.push({ Id: $(this).val() }) })
+                //  var elm=  $('input[type="checkbox"] ').attr('chacked')
+                ClientsId = JSON.stringify(clients);//   ClientsId = JSON.stringify(clients);
+              //  $("#message").html(ClientsId);
+                $.ajax({
+                    type: 'POST',
+                    //Pay/Continent/reg
+                    data: ClientsId,
+                    url: 'https://localhost:44382/marketing/cible',                //contentType: 'application/json',
+                    //   dataType: "json",
+                    contentType: 'application/json',// "application/x-www-form-urlencoded; charset=UTF-8",
+                    success: function (data) {
+                        //$(data).each(function () {                            // $(reg).append('<option id="' + this.IdV + '">' + this.NomV + '</option>');
+                        //    $("#message").append(data);
+                        //})
+                        //$("#Contenue").empty();
+                        //$("#Contenue").append(data);
+                        document.location.href = 'https://localhost:44382/marketing/Index';
+                    },
+                    error: function (xhr, status, error) {
+                        //  $("#message").html("Erreur de communication");
+                        $("#message").empty();
+                        $("#message").append("Erreur de communication");
+                    }
+                });
+                //alert('Bravo vous etes con !');
+                //  document.location.href = "#popup1";
+                return false;
+            });
+        });
+
+
+
+
+
+    </script>
+}
+

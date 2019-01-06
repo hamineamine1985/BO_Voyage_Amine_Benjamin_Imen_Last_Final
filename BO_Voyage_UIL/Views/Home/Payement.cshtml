@@ -1,0 +1,120 @@
+﻿<form id="saveDossier"  method="post">
+    <div style="text-align:center">
+        <h2>Réservez votre séjour</h2>
+    </div>
+    <br />
+    <div>
+        <div class="row1">
+            <div class="column8">
+                <h4>Renseignez votre courriel :</h4>
+                <div>
+                    <br />
+                    <label for="email">Email</label>
+                    <br />
+                    <input name="email" id="email" class="form-control" type="email" placeholder="Email : " required>
+                </div>
+                <br />
+                <br />
+                <div>
+                    <div>
+                        <h4>Sélectionnez le nombre de voyageurs :</h4>
+                        <br />
+                        <label colonnefor="nbAdults">Nombre de voyageurs</label>
+                        <select type="select" id="nbAdults" name="nbAdults" class="form-control selectpicker" data-size="1" data-style="bordered" tabindex="-98">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <br />
+            <div class="column9">
+                <h4>Saisissez votre moyen de paiement :</h4>
+                <img src="https://www.centre-easylangues.com/wp-content/uploads/2017/04/paiement-securise.jpg" width="32%" />
+                <br />
+                <br />
+                <div class="form-group owner">
+                    <label for="owner">Nom du titulaire de la carte :</label>
+                    <input type="text" class="form-control" id="owner" placeholder="Nom du titulaire de la carte :" required>
+                </div>
+                <br />
+                <div class="form-group" id="card-number-field">
+                    <label for="cardNumber">Numéro de carte :</label>
+                    <input type="text" class="form-control" id="cardNumber" placeholder="Numéro de carte :" required>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Date d'expiration : </label>
+                    <select class="form-control" id="expirationdate" required>
+                        <!--   <option value="Choix">--- Mois ---</option>-->
+                        <option value="01">Janvier</option>
+                        <option value="02">Février</option>
+                        <option value="03">Mars</option>
+                        <option value="04">Avril</option>
+                        <option value="05">Mai</option>
+                        <option value="06">Juin</option>
+                        <option value="07">Juillet</option>
+                        <option value="08">Août</option>
+                        <option value="09">Septembre</option>
+                        <option value="10">Octobre</option>
+                        <option value="11">Novembre</option>
+                        <option value="12">Décembre</option>
+                    </select>
+                    <br />
+                    <label>Année : </label><br />
+                    <select class="form-control" id="Annee" required>
+                        <!--<option value="Année">--- Année ---</option>-->
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                    </select>
+                </div>
+                <br />
+                <div class="form-group CVV">
+                    <label for="cvv">Cryptogramme (CVV)</label>
+                    <input type="text" class="form-control" id="cvv" required>
+                </div>
+            </div>
+
+            <div>
+            </div>
+            <br />
+            <div class="column10">
+                <input id="AssuranceAnnul" type="checkbox" class="checkbox" data-code="Assurance" value="rbt assurance1" />
+                <label for="rbt assurance1">Assurance Annulation</label>
+                <div>
+                </div><span class="price">60,00</span>
+                <strong class="currency">€</strong>
+            </div>
+            <div class="column11">
+                <input id="AssuranceRpatri" type="checkbox" class="checkbox" data-code="Assurance" value="rbt assurance2" />
+                <label for="rbt assurance2">Assurance Rapatriement</label>
+                <div>
+                </div><span class="price">100,00</span>
+                <strong class="currency">€</strong>
+            </div>
+        </div>
+        <div>
+            <input id="btnSubmit" value="Valider" class="btn1" type="submit" />
+        </div>
+    </div>
+</form>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br />

@@ -1,0 +1,1340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BDD_BOVoyage_IBAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Campagne">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="varchar(max)" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" Nullable="false" />
+          <Property Name="DateDeCreation" Type="datetime2" Precision="7" />
+          <Property Name="DateDeLimite" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="CampagneClient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCamp" Type="bigint" Nullable="false" />
+          <Property Name="IdClient" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarteBancaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomCB" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NumCB" Type="char" MaxLength="16" Nullable="false" />
+          <Property Name="DateExpCB" Type="date" Nullable="false" />
+          <Property Name="CryptoCB" Type="char" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Civilite" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateNaissance" Type="date" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumCB" Type="char" MaxLength="16" Nullable="false" />
+          <Property Name="Telephone" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="motdepasse" Type="nchar" MaxLength="6" />
+          <Property Name="identifiant" Type="nchar" MaxLength="16" />
+          <Property Name="Prix" Type="money" />
+          <Property Name="Ville" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AssuranceAnnul" Type="bit" />
+          <Property Name="AssuranceRpatri" Type="bit" />
+        </EntityType>
+        <EntityType Name="Continent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dossier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdCB" Type="bigint" />
+          <Property Name="NumCB" Type="char" MaxLength="16" Nullable="false" />
+          <Property Name="NbVoyageur" Type="int" Nullable="false" />
+          <Property Name="IdVoyage" Type="bigint" />
+          <Property Name="IdClient" Type="bigint" />
+          <Property Name="Etat" Type="int" />
+          <Property Name="NbVoyageurValider" Type="int" />
+        </EntityType>
+        <EntityType Name="Pays">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="20" />
+          <Property Name="IdContinent" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="20" />
+          <Property Name="IdPays" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Voyage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="DateDepart" Type="datetime2" Precision="7" />
+          <Property Name="DateRetour" Type="datetime2" Precision="7" />
+          <Property Name="Dispo" Type="bigint" />
+          <Property Name="Prix" Type="float" />
+          <Property Name="IdRegion" Type="bigint" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" />
+          <Property Name="TypeVoyage" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Voyageur">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DateNaissance" Type="date" Nullable="false" />
+          <Property Name="IdDossier" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cible_Campagne">
+          <End Role="Campagne" Type="Self.Campagne" Multiplicity="1" />
+          <End Role="CampagneClient" Type="Self.CampagneClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campagne">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CampagneClient">
+              <PropertyRef Name="IdCamp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cible_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="CampagneClient" Type="Self.CampagneClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CampagneClient">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dossier_CarteBancaire">
+          <End Role="CarteBancaire" Type="Self.CarteBancaire" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarteBancaire">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dossier">
+              <PropertyRef Name="IdCB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dossier_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dossier">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dossier_Voyage">
+          <End Role="Voyage" Type="Self.Voyage" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voyage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dossier">
+              <PropertyRef Name="IdVoyage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pays_Continent">
+          <End Role="Continent" Type="Self.Continent" Multiplicity="1" />
+          <End Role="Pays" Type="Self.Pays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pays">
+              <PropertyRef Name="IdContinent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Region_Pays">
+          <End Role="Pays" Type="Self.Pays" Multiplicity="1" />
+          <End Role="Region" Type="Self.Region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pays">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Region">
+              <PropertyRef Name="IdPays" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voyage_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Voyage" Type="Self.Voyage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Voyage">
+              <PropertyRef Name="IdRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voyageur_Dossier">
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="1" />
+          <End Role="Voyageur" Type="Self.Voyageur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dossier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Voyageur">
+              <PropertyRef Name="IdDossier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="EnregistreDossier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdVoyage" Type="bigint" Mode="In" />
+          <Parameter Name="EmailClient" Type="nvarchar" Mode="In" />
+          <Parameter Name="NumCBClient" Type="char" Mode="In" />
+          <Parameter Name="NbVoyageur" Type="int" Mode="In" />
+          <Parameter Name="IdClient" Type="bigint" Mode="In" />
+          <Parameter Name="IdCB" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="Filtre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TypeVoy" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="idC" Type="bigint" Mode="In" />
+          <Parameter Name="idP" Type="bigint" Mode="In" />
+          <Parameter Name="idR" Type="bigint" Mode="In" />
+          <Parameter Name="AgeMin" Type="int" Mode="In" />
+          <Parameter Name="AgeMax" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GenereId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="char" />
+        <Function Name="GetClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Identifiant" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="bigint" Nullable="false" />
+                <Property Name="Civilite" Type="nvarchar" MaxLength="5" Nullable="false" />
+                <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="DateNaissance" Type="date" Nullable="false" />
+                <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="NumCB" Type="char" MaxLength="16" Nullable="false" />
+                <Property Name="Telephone" Type="char" MaxLength="10" Nullable="false" />
+                <Property Name="motdepasse" Type="nchar" MaxLength="6" />
+                <Property Name="identifiant" Type="nchar" MaxLength="16" />
+                <Property Name="Prix" Type="money" />
+                <Property Name="Ville" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="AssuranceAnnul" Type="bit" />
+                <Property Name="AssuranceRpatri" Type="bit" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GetClient_Email" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Identifiant" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="bigint" Nullable="false" />
+                <Property Name="Civilite" Type="nvarchar" MaxLength="5" Nullable="false" />
+                <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="DateNaissance" Type="date" Nullable="false" />
+                <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="NumCB" Type="char" MaxLength="16" Nullable="false" />
+                <Property Name="Telephone" Type="char" MaxLength="10" Nullable="false" />
+                <Property Name="motdepasse" Type="nchar" MaxLength="6" />
+                <Property Name="identifiant" Type="nchar" MaxLength="16" />
+                <Property Name="Prix" Type="money" />
+                <Property Name="Ville" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="AssuranceAnnul" Type="bit" />
+                <Property Name="AssuranceRpatri" Type="bit" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GetDossier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Identifiant" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="bigint" Nullable="false" />
+                <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="IdCB" Type="bigint" />
+                <Property Name="NumCB" Type="char" MaxLength="16" Nullable="false" />
+                <Property Name="NbVoyageur" Type="int" Nullable="false" />
+                <Property Name="IdVoyage" Type="bigint" />
+                <Property Name="IdClient" Type="bigint" />
+                <Property Name="Etat" Type="int" />
+                <Property Name="NbVoyageurValider" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GetListeContinent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetListePays" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="choixC" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetListeRegion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="choixP" Type="int" Mode="In" />
+          <Parameter Name="choixC" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetListeVoyage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="choixC" Type="int" Mode="In" />
+          <Parameter Name="choixP" Type="int" Mode="In" />
+          <Parameter Name="choixR" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetMotdepasse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="char" Mode="In" />
+        </Function>
+        <Function Name="GetPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Identifiant" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="Taux" Type="decimal" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Somme" Type="float" />
+                <Property Name="Nbr" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GetVoyageur_Price" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdVoyageur" Type="int" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="Taux" Type="decimal" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Somme" Type="float" />
+                <Property Name="Nbr" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="Sp_GenereId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_Get_Voyage_Type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_GetCb" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCb" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="Sp_GetDossier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="Sp_GetDossier_ClientInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="Sp_GetPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Identifiant" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="Taux" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="Sp_GetVoyage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="Sp_GetVoyageClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdClient" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="Sp_GetVoyageur_Price" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdVoyageur" Type="int" Mode="In" />
+          <Parameter Name="Age" Type="int" Mode="In" />
+          <Parameter Name="Taux" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="Sp_SetClient_Price" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="bigint" Mode="In" />
+          <Parameter Name="Price" Type="decimal" Mode="In" />
+        </Function>
+        <EntityContainer Name="BDD_BOVoyage_IBAModelStoreContainer">
+          <EntitySet Name="Campagne" EntityType="Self.Campagne" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CampagneClient" EntityType="Self.CampagneClient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarteBancaire" EntityType="Self.CarteBancaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Continent" EntityType="Self.Continent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dossier" EntityType="Self.Dossier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pays" EntityType="Self.Pays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voyage" EntityType="Self.Voyage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voyageur" EntityType="Self.Voyageur" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cible_Campagne" Association="Self.FK_Cible_Campagne">
+            <End Role="Campagne" EntitySet="Campagne" />
+            <End Role="CampagneClient" EntitySet="CampagneClient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cible_Client" Association="Self.FK_Cible_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="CampagneClient" EntitySet="CampagneClient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dossier_CarteBancaire" Association="Self.FK_Dossier_CarteBancaire">
+            <End Role="CarteBancaire" EntitySet="CarteBancaire" />
+            <End Role="Dossier" EntitySet="Dossier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dossier_Client" Association="Self.FK_Dossier_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Dossier" EntitySet="Dossier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dossier_Voyage" Association="Self.FK_Dossier_Voyage">
+            <End Role="Voyage" EntitySet="Voyage" />
+            <End Role="Dossier" EntitySet="Dossier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pays_Continent" Association="Self.FK_Pays_Continent">
+            <End Role="Continent" EntitySet="Continent" />
+            <End Role="Pays" EntitySet="Pays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Region_Pays" Association="Self.FK_Region_Pays">
+            <End Role="Pays" EntitySet="Pays" />
+            <End Role="Region" EntitySet="Region" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voyage_Region" Association="Self.FK_Voyage_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Voyage" EntitySet="Voyage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voyageur_Dossier" Association="Self.FK_Voyageur_Dossier">
+            <End Role="Dossier" EntitySet="Dossier" />
+            <End Role="Voyageur" EntitySet="Voyageur" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDD_BOVoyage_IBAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="GetClient_Result">
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Civilite" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateNaissance" Type="DateTime" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumCB" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="motdepasse" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="identifiant" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="Prix" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Ville" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AssuranceAnnul" Type="Boolean" />
+          <Property Name="AssuranceRpatri" Type="Boolean" />
+        </ComplexType>
+        <ComplexType Name="GetClient_Email_Result">
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Civilite" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateNaissance" Type="DateTime" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumCB" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="motdepasse" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="identifiant" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="Prix" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Ville" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AssuranceAnnul" Type="Boolean" />
+          <Property Name="AssuranceRpatri" Type="Boolean" />
+        </ComplexType>
+        <ComplexType Name="GetDossier_Result">
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdCB" Type="Int64" />
+          <Property Name="NumCB" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NbVoyageur" Type="Int32" Nullable="false" />
+          <Property Name="IdVoyage" Type="Int64" />
+          <Property Name="IdClient" Type="Int64" />
+          <Property Name="Etat" Type="Int32" />
+          <Property Name="NbVoyageurValider" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="GetPrice_Result">
+          <Property Name="Somme" Type="Double" />
+          <Property Name="Nbr" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="GetVoyageur_Price_Result">
+          <Property Name="Somme" Type="Double" />
+          <Property Name="Nbr" Type="Int32" />
+        </ComplexType>
+        <EntityType Name="Campagne">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateDeCreation" Type="DateTime" Precision="7" />
+          <Property Name="DateDeLimite" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="CampagneClients" Relationship="Self.FK_Cible_Campagne" FromRole="Campagne" ToRole="CampagneClient" />
+        </EntityType>
+        <EntityType Name="CampagneClient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCamp" Type="Int64" Nullable="false" />
+          <Property Name="IdClient" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Campagne" Relationship="Self.FK_Cible_Campagne" FromRole="CampagneClient" ToRole="Campagne" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Cible_Client" FromRole="CampagneClient" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="CarteBancaire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomCB" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumCB" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DateExpCB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CryptoCB" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Dossiers" Relationship="Self.FK_Dossier_CarteBancaire" FromRole="CarteBancaire" ToRole="Dossier" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Civilite" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateNaissance" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumCB" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="motdepasse" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <Property Name="identifiant" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="Prix" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Ville" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AssuranceAnnul" Type="Boolean" />
+          <Property Name="AssuranceRpatri" Type="Boolean" />
+          <NavigationProperty Name="CampagneClients" Relationship="Self.FK_Cible_Client" FromRole="Client" ToRole="CampagneClient" />
+          <NavigationProperty Name="Dossiers" Relationship="Self.FK_Dossier_Client" FromRole="Client" ToRole="Dossier" />
+        </EntityType>
+        <EntityType Name="Continent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Pays" Relationship="Self.FK_Pays_Continent" FromRole="Continent" ToRole="Pays" />
+        </EntityType>
+        <EntityType Name="Dossier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdCB" Type="Int64" />
+          <Property Name="NumCB" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NbVoyageur" Type="Int32" Nullable="false" />
+          <Property Name="IdVoyage" Type="Int64" />
+          <Property Name="IdClient" Type="Int64" />
+          <Property Name="Etat" Type="Int32" />
+          <Property Name="NbVoyageurValider" Type="Int32" />
+          <NavigationProperty Name="CarteBancaire" Relationship="Self.FK_Dossier_CarteBancaire" FromRole="Dossier" ToRole="CarteBancaire" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Dossier_Client" FromRole="Dossier" ToRole="Client" />
+          <NavigationProperty Name="Voyage" Relationship="Self.FK_Dossier_Voyage" FromRole="Dossier" ToRole="Voyage" />
+          <NavigationProperty Name="Voyageurs" Relationship="Self.FK_Voyageur_Dossier" FromRole="Dossier" ToRole="Voyageur" />
+        </EntityType>
+        <EntityType Name="Pay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IdContinent" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Continent" Relationship="Self.FK_Pays_Continent" FromRole="Pays" ToRole="Continent" />
+          <NavigationProperty Name="Regions" Relationship="Self.FK_Region_Pays" FromRole="Pays" ToRole="Region" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IdPays" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Pay" Relationship="Self.FK_Region_Pays" FromRole="Region" ToRole="Pays" />
+          <NavigationProperty Name="Voyages" Relationship="Self.FK_Voyage_Region" FromRole="Region" ToRole="Voyage" />
+        </EntityType>
+        <EntityType Name="Voyage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateDepart" Type="DateTime" Precision="7" />
+          <Property Name="DateRetour" Type="DateTime" Precision="7" />
+          <Property Name="Dispo" Type="Int64" />
+          <Property Name="Prix" Type="Double" />
+          <Property Name="IdRegion" Type="Int64" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TypeVoyage" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Dossiers" Relationship="Self.FK_Dossier_Voyage" FromRole="Voyage" ToRole="Dossier" />
+          <NavigationProperty Name="Region" Relationship="Self.FK_Voyage_Region" FromRole="Voyage" ToRole="Region" />
+        </EntityType>
+        <EntityType Name="Voyageur">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateNaissance" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdDossier" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Dossier" Relationship="Self.FK_Voyageur_Dossier" FromRole="Voyageur" ToRole="Dossier" />
+        </EntityType>
+        <Association Name="FK_Cible_Campagne">
+          <End Role="Campagne" Type="Self.Campagne" Multiplicity="1" />
+          <End Role="CampagneClient" Type="Self.CampagneClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campagne">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CampagneClient">
+              <PropertyRef Name="IdCamp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cible_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="CampagneClient" Type="Self.CampagneClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CampagneClient">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dossier_CarteBancaire">
+          <End Role="CarteBancaire" Type="Self.CarteBancaire" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarteBancaire">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dossier">
+              <PropertyRef Name="IdCB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dossier_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dossier">
+              <PropertyRef Name="IdClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pays_Continent">
+          <End Role="Continent" Type="Self.Continent" Multiplicity="1" />
+          <End Role="Pays" Type="Self.Pay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Continent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Pays">
+              <PropertyRef Name="IdContinent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dossier_Voyage">
+          <End Role="Voyage" Type="Self.Voyage" Multiplicity="0..1" />
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voyage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dossier">
+              <PropertyRef Name="IdVoyage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voyageur_Dossier">
+          <End Role="Dossier" Type="Self.Dossier" Multiplicity="1" />
+          <End Role="Voyageur" Type="Self.Voyageur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dossier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Voyageur">
+              <PropertyRef Name="IdDossier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Region_Pays">
+          <End Role="Pays" Type="Self.Pay" Multiplicity="1" />
+          <End Role="Region" Type="Self.Region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pays">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Region">
+              <PropertyRef Name="IdPays" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voyage_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Voyage" Type="Self.Voyage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Voyage">
+              <PropertyRef Name="IdRegion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BOVoyageContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Campagnes" EntityType="Self.Campagne" />
+          <EntitySet Name="CampagneClients" EntityType="Self.CampagneClient" />
+          <EntitySet Name="CarteBancaires" EntityType="Self.CarteBancaire" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Continents" EntityType="Self.Continent" />
+          <EntitySet Name="Dossiers" EntityType="Self.Dossier" />
+          <EntitySet Name="Pays" EntityType="Self.Pay" />
+          <EntitySet Name="Regions" EntityType="Self.Region" />
+          <EntitySet Name="Voyages" EntityType="Self.Voyage" />
+          <EntitySet Name="Voyageurs" EntityType="Self.Voyageur" />
+          <AssociationSet Name="FK_Cible_Campagne" Association="Self.FK_Cible_Campagne">
+            <End Role="Campagne" EntitySet="Campagnes" />
+            <End Role="CampagneClient" EntitySet="CampagneClients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cible_Client" Association="Self.FK_Cible_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="CampagneClient" EntitySet="CampagneClients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dossier_CarteBancaire" Association="Self.FK_Dossier_CarteBancaire">
+            <End Role="CarteBancaire" EntitySet="CarteBancaires" />
+            <End Role="Dossier" EntitySet="Dossiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dossier_Client" Association="Self.FK_Dossier_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Dossier" EntitySet="Dossiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pays_Continent" Association="Self.FK_Pays_Continent">
+            <End Role="Continent" EntitySet="Continents" />
+            <End Role="Pays" EntitySet="Pays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dossier_Voyage" Association="Self.FK_Dossier_Voyage">
+            <End Role="Voyage" EntitySet="Voyages" />
+            <End Role="Dossier" EntitySet="Dossiers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voyageur_Dossier" Association="Self.FK_Voyageur_Dossier">
+            <End Role="Dossier" EntitySet="Dossiers" />
+            <End Role="Voyageur" EntitySet="Voyageurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Region_Pays" Association="Self.FK_Region_Pays">
+            <End Role="Pays" EntitySet="Pays" />
+            <End Role="Region" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voyage_Region" Association="Self.FK_Voyage_Region">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Voyage" EntitySet="Voyages" />
+          </AssociationSet>
+          <FunctionImport Name="GetClient" IsComposable="true" ReturnType="Collection(BDD_BOVoyage_IBAModel.GetClient_Result)">
+            <Parameter Name="Identifiant" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetClient_Email" IsComposable="true" ReturnType="Collection(BDD_BOVoyage_IBAModel.GetClient_Email_Result)">
+            <Parameter Name="Identifiant" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetDossier" IsComposable="true" ReturnType="Collection(BDD_BOVoyage_IBAModel.GetDossier_Result)">
+            <Parameter Name="Identifiant" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetPrice" IsComposable="true" ReturnType="Collection(BDD_BOVoyage_IBAModel.GetPrice_Result)">
+            <Parameter Name="Identifiant" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Taux" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GetVoyageur_Price" IsComposable="true" ReturnType="Collection(BDD_BOVoyage_IBAModel.GetVoyageur_Price_Result)">
+            <Parameter Name="IdVoyageur" Mode="In" Type="Int32" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Taux" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="EnregistreDossier" ReturnType="Collection(Decimal)">
+            <Parameter Name="IdVoyage" Mode="In" Type="Int64" />
+            <Parameter Name="EmailClient" Mode="In" Type="String" />
+            <Parameter Name="NumCBClient" Mode="In" Type="String" />
+            <Parameter Name="NbVoyageur" Mode="In" Type="Int32" />
+            <Parameter Name="IdClient" Mode="In" Type="Int64" />
+            <Parameter Name="IdCB" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Filtre" ReturnType="Collection(BDD_BOVoyage_IBAModel.Filtre_Result)">
+            <Parameter Name="TypeVoy" Mode="In" Type="String" />
+            <Parameter Name="idC" Mode="In" Type="Int64" />
+            <Parameter Name="idP" Mode="In" Type="Int64" />
+            <Parameter Name="idR" Mode="In" Type="Int64" />
+            <Parameter Name="AgeMin" Mode="In" Type="Int32" />
+            <Parameter Name="AgeMax" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetListeContinent" ReturnType="Collection(BDD_BOVoyage_IBAModel.GetListeContinent_Result)" />
+          <FunctionImport Name="GetListePays" ReturnType="Collection(BDD_BOVoyage_IBAModel.GetListePays_Result)">
+            <Parameter Name="choixC" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetListeRegion" ReturnType="Collection(BDD_BOVoyage_IBAModel.GetListeRegion_Result)">
+            <Parameter Name="choixP" Mode="In" Type="Int32" />
+            <Parameter Name="choixC" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetListeVoyage" ReturnType="Collection(BDD_BOVoyage_IBAModel.GetListeVoyage_Result)">
+            <Parameter Name="choixC" Mode="In" Type="Int32" />
+            <Parameter Name="choixP" Mode="In" Type="Int32" />
+            <Parameter Name="choixR" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetMotdepasse" ReturnType="Collection(String)">
+            <Parameter Name="id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GenereId" ReturnType="Collection(String)" />
+          <FunctionImport Name="Sp_Get_Voyage_Type" ReturnType="Collection(String)" />
+          <FunctionImport Name="Sp_GetCb" ReturnType="Collection(BDD_BOVoyage_IBAModel.Sp_GetCb_Result)">
+            <Parameter Name="IdCb" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GetDossier" ReturnType="Collection(BDD_BOVoyage_IBAModel.Sp_GetDossier_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GetDossier_ClientInfo" ReturnType="Collection(BDD_BOVoyage_IBAModel.Sp_GetDossier_ClientInfo_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GetPrice" ReturnType="Collection(BDD_BOVoyage_IBAModel.Sp_GetPrice_Result)">
+            <Parameter Name="Identifiant" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Taux" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GetVoyage" ReturnType="Collection(BDD_BOVoyage_IBAModel.Sp_GetVoyage_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GetVoyageClient" ReturnType="Collection(BDD_BOVoyage_IBAModel.Sp_GetVoyageClient_Result)">
+            <Parameter Name="IdClient" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GetVoyageur_Price" ReturnType="Collection(BDD_BOVoyage_IBAModel.Sp_GetVoyageur_Price_Result)">
+            <Parameter Name="IdVoyageur" Mode="In" Type="Int32" />
+            <Parameter Name="Age" Mode="In" Type="Int32" />
+            <Parameter Name="Taux" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_SetClient_Price">
+            <Parameter Name="Id" Mode="In" Type="Int64" />
+            <Parameter Name="Price" Mode="In" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Filtre_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Civilite" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="Nom" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Prenom" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="DateNaissance" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NumCB" Nullable="false" MaxLength="16" />
+          <Property Type="String" Name="Telephone" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="motdepasse" Nullable="true" MaxLength="6" />
+          <Property Type="String" Name="identifiant" Nullable="true" MaxLength="16" />
+          <Property Type="Decimal" Name="Prix" Nullable="true" Precision="19" />
+          <Property Type="String" Name="Ville" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="AssuranceAnnul" Nullable="true" />
+          <Property Type="Boolean" Name="AssuranceRpatri" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetListeContinent_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nom" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetListePays_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nom" Nullable="true" MaxLength="20" />
+          <Property Type="Int64" Name="IdContinent" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetListeRegion_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nom" Nullable="true" MaxLength="20" />
+          <Property Type="Int64" Name="IdPays" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetListeVoyage_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nom" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="DateDepart" Nullable="true" />
+          <Property Type="DateTime" Name="DateRetour" Nullable="true" />
+          <Property Type="Int64" Name="Dispo" Nullable="true" />
+          <Property Type="Double" Name="Prix" Nullable="true" />
+          <Property Type="Int64" Name="IdRegion" Nullable="false" />
+          <Property Type="String" Name="Url" Nullable="true" />
+          <Property Type="String" Name="TypeVoyage" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetCb_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="NomCB" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="NumCB" Nullable="false" MaxLength="16" />
+          <Property Type="DateTime" Name="DateExpCB" Nullable="false" />
+          <Property Type="String" Name="CryptoCB" Nullable="false" MaxLength="3" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetDossier_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="Int64" Name="IdCB" Nullable="true" />
+          <Property Type="String" Name="NumCB" Nullable="false" MaxLength="16" />
+          <Property Type="Int32" Name="NbVoyageur" Nullable="false" />
+          <Property Type="Int64" Name="IdVoyage" Nullable="true" />
+          <Property Type="Int64" Name="IdClient" Nullable="true" />
+          <Property Type="Int32" Name="Etat" Nullable="true" />
+          <Property Type="Int32" Name="NbVoyageurValider" Nullable="true" />
+          <Property Type="Decimal" Name="Prix" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetDossier_ClientInfo_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="Int64" Name="IdCB" Nullable="true" />
+          <Property Type="String" Name="NumCB" Nullable="false" MaxLength="16" />
+          <Property Type="Int32" Name="NbVoyageur" Nullable="false" />
+          <Property Type="Int64" Name="IdVoyage" Nullable="true" />
+          <Property Type="Int64" Name="IdClient" Nullable="true" />
+          <Property Type="Int32" Name="Etat" Nullable="true" />
+          <Property Type="Int32" Name="NbVoyageurValider" Nullable="true" />
+          <Property Type="Decimal" Name="Prix" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetPrice_Result">
+          <Property Type="Double" Name="Somme" Nullable="true" />
+          <Property Type="Int32" Name="Nbr" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetVoyage_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nom" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="DateDepart" Nullable="true" />
+          <Property Type="DateTime" Name="DateRetour" Nullable="true" />
+          <Property Type="Int64" Name="Dispo" Nullable="true" />
+          <Property Type="Double" Name="Prix" Nullable="true" />
+          <Property Type="Int64" Name="IdRegion" Nullable="false" />
+          <Property Type="String" Name="Url" Nullable="true" />
+          <Property Type="String" Name="TypeVoyage" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetVoyageClient_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nom" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="DateTime" Name="DateDepart" Nullable="true" />
+          <Property Type="DateTime" Name="DateRetour" Nullable="true" />
+          <Property Type="Int64" Name="Dispo" Nullable="true" />
+          <Property Type="Double" Name="Prix" Nullable="true" />
+          <Property Type="Int64" Name="IdRegion" Nullable="false" />
+          <Property Type="String" Name="Url" Nullable="true" />
+          <Property Type="String" Name="TypeVoyage" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetVoyageur_Price_Result">
+          <Property Type="Double" Name="Somme" Nullable="true" />
+          <Property Type="Int32" Name="Nbr" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDD_BOVoyage_IBAModelStoreContainer" CdmEntityContainer="BOVoyageContext">
+          <EntitySetMapping Name="Campagnes">
+            <EntityTypeMapping TypeName="BDD_BOVoyage_IBAModel.Campagne">
+              <MappingFragment StoreEntitySet="Campagne">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateDeCreation" ColumnName="DateDeCreation" />
+                <ScalarProperty Name="DateDeLimite" ColumnName="DateDeLimite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CampagneClients">
+            <EntityTypeMapping TypeName="BDD_BOVoyage_IBAModel.CampagneClient">
+              <MappingFragment StoreEntitySet="CampagneClient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdCamp" ColumnName="IdCamp" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarteBancaires">
+            <EntityTypeMapping TypeName="BDD_BOVoyage_IBAModel.CarteBancaire">
+              <MappingFragment StoreEntitySet="CarteBancaire">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NomCB" ColumnName="NomCB" />
+                <ScalarProperty Name="NumCB" ColumnName="NumCB" />
+                <ScalarProperty Name="DateExpCB" ColumnName="DateExpCB" />
+                <ScalarProperty Name="CryptoCB" ColumnName="CryptoCB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="BDD_BOVoyage_IBAModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Civilite" ColumnName="Civilite" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NumCB" ColumnName="NumCB" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="motdepasse" ColumnName="motdepasse" />
+                <ScalarProperty Name="identifiant" ColumnName="identifiant" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="AssuranceAnnul" ColumnName="AssuranceAnnul" />
+                <ScalarProperty Name="AssuranceRpatri" ColumnName="AssuranceRpatri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Continents">
+            <EntityTypeMapping TypeName="BDD_BOVoyage_IBAModel.Continent">
+              <MappingFragment StoreEntitySet="Continent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dossiers">
+            <EntityTypeMapping TypeName="BDD_BOVoyage_IBAModel.Dossier">
+              <MappingFragment StoreEntitySet="Dossier">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdCB" ColumnName="IdCB" />
+                <ScalarProperty Name="NumCB" ColumnName="NumCB" />
+                <ScalarProperty Name="NbVoyageur" ColumnName="NbVoyageur" />
+                <ScalarProperty Name="IdVoyage" ColumnName="IdVoyage" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="NbVoyageurValider" ColumnName="NbVoyageurValider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pays">
+            <EntityTypeMapping TypeName="BDD_BOVoyage_IBAModel.Pay">
+              <MappingFragment StoreEntitySet="Pays">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="IdContinent" ColumnName="IdContinent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="BDD_BOVoyage_IBAModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="IdPays" ColumnName="IdPays" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Voyages">
+            <EntityTypeMapping TypeName="BDD_BOVoyage_IBAModel.Voyage">
+              <MappingFragment StoreEntitySet="Voyage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateDepart" ColumnName="DateDepart" />
+                <ScalarProperty Name="DateRetour" ColumnName="DateRetour" />
+                <ScalarProperty Name="Dispo" ColumnName="Dispo" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="TypeVoyage" ColumnName="TypeVoyage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Voyageurs">
+            <EntityTypeMapping TypeName="BDD_BOVoyage_IBAModel.Voyageur">
+              <MappingFragment StoreEntitySet="Voyageur">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="IdDossier" ColumnName="IdDossier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="BDD_BOVoyage_IBAModel.Store.GetClient" FunctionImportName="GetClient">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.GetClient_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Civilite" ColumnName="Civilite" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NumCB" ColumnName="NumCB" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="motdepasse" ColumnName="motdepasse" />
+                <ScalarProperty Name="identifiant" ColumnName="identifiant" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="AssuranceAnnul" ColumnName="AssuranceAnnul" />
+                <ScalarProperty Name="AssuranceRpatri" ColumnName="AssuranceRpatri" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="BDD_BOVoyage_IBAModel.Store.GetClient_Email" FunctionImportName="GetClient_Email">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.GetClient_Email_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Civilite" ColumnName="Civilite" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NumCB" ColumnName="NumCB" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="motdepasse" ColumnName="motdepasse" />
+                <ScalarProperty Name="identifiant" ColumnName="identifiant" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="AssuranceAnnul" ColumnName="AssuranceAnnul" />
+                <ScalarProperty Name="AssuranceRpatri" ColumnName="AssuranceRpatri" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="BDD_BOVoyage_IBAModel.Store.GetDossier" FunctionImportName="GetDossier">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.GetDossier_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdCB" ColumnName="IdCB" />
+                <ScalarProperty Name="NumCB" ColumnName="NumCB" />
+                <ScalarProperty Name="NbVoyageur" ColumnName="NbVoyageur" />
+                <ScalarProperty Name="IdVoyage" ColumnName="IdVoyage" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="NbVoyageurValider" ColumnName="NbVoyageurValider" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="BDD_BOVoyage_IBAModel.Store.GetPrice" FunctionImportName="GetPrice">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.GetPrice_Result">
+                <ScalarProperty Name="Somme" ColumnName="Somme" />
+                <ScalarProperty Name="Nbr" ColumnName="Nbr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="BDD_BOVoyage_IBAModel.Store.GetVoyageur_Price" FunctionImportName="GetVoyageur_Price">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.GetVoyageur_Price_Result">
+                <ScalarProperty Name="Somme" ColumnName="Somme" />
+                <ScalarProperty Name="Nbr" ColumnName="Nbr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EnregistreDossier" FunctionName="BDD_BOVoyage_IBAModel.Store.EnregistreDossier" />
+          <FunctionImportMapping FunctionImportName="Filtre" FunctionName="BDD_BOVoyage_IBAModel.Store.Filtre">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.Filtre_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Civilite" ColumnName="Civilite" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="DateNaissance" ColumnName="DateNaissance" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NumCB" ColumnName="NumCB" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="motdepasse" ColumnName="motdepasse" />
+                <ScalarProperty Name="identifiant" ColumnName="identifiant" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="AssuranceAnnul" ColumnName="AssuranceAnnul" />
+                <ScalarProperty Name="AssuranceRpatri" ColumnName="AssuranceRpatri" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetListeContinent" FunctionName="BDD_BOVoyage_IBAModel.Store.GetListeContinent">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.GetListeContinent_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetListePays" FunctionName="BDD_BOVoyage_IBAModel.Store.GetListePays">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.GetListePays_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="IdContinent" ColumnName="IdContinent" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetListeRegion" FunctionName="BDD_BOVoyage_IBAModel.Store.GetListeRegion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.GetListeRegion_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="IdPays" ColumnName="IdPays" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetListeVoyage" FunctionName="BDD_BOVoyage_IBAModel.Store.GetListeVoyage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.GetListeVoyage_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateDepart" ColumnName="DateDepart" />
+                <ScalarProperty Name="DateRetour" ColumnName="DateRetour" />
+                <ScalarProperty Name="Dispo" ColumnName="Dispo" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="TypeVoyage" ColumnName="TypeVoyage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetMotdepasse" FunctionName="BDD_BOVoyage_IBAModel.Store.GetMotdepasse" />
+          <FunctionImportMapping FunctionImportName="Sp_GenereId" FunctionName="BDD_BOVoyage_IBAModel.Store.Sp_GenereId" />
+          <FunctionImportMapping FunctionImportName="Sp_Get_Voyage_Type" FunctionName="BDD_BOVoyage_IBAModel.Store.Sp_Get_Voyage_Type" />
+          <FunctionImportMapping FunctionImportName="Sp_GetCb" FunctionName="BDD_BOVoyage_IBAModel.Store.Sp_GetCb">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.Sp_GetCb_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NomCB" ColumnName="NomCB" />
+                <ScalarProperty Name="NumCB" ColumnName="NumCB" />
+                <ScalarProperty Name="DateExpCB" ColumnName="DateExpCB" />
+                <ScalarProperty Name="CryptoCB" ColumnName="CryptoCB" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetDossier" FunctionName="BDD_BOVoyage_IBAModel.Store.Sp_GetDossier">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.Sp_GetDossier_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdCB" ColumnName="IdCB" />
+                <ScalarProperty Name="NumCB" ColumnName="NumCB" />
+                <ScalarProperty Name="NbVoyageur" ColumnName="NbVoyageur" />
+                <ScalarProperty Name="IdVoyage" ColumnName="IdVoyage" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="NbVoyageurValider" ColumnName="NbVoyageurValider" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetDossier_ClientInfo" FunctionName="BDD_BOVoyage_IBAModel.Store.Sp_GetDossier_ClientInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.Sp_GetDossier_ClientInfo_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdCB" ColumnName="IdCB" />
+                <ScalarProperty Name="NumCB" ColumnName="NumCB" />
+                <ScalarProperty Name="NbVoyageur" ColumnName="NbVoyageur" />
+                <ScalarProperty Name="IdVoyage" ColumnName="IdVoyage" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="Etat" ColumnName="Etat" />
+                <ScalarProperty Name="NbVoyageurValider" ColumnName="NbVoyageurValider" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetPrice" FunctionName="BDD_BOVoyage_IBAModel.Store.Sp_GetPrice">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.Sp_GetPrice_Result">
+                <ScalarProperty Name="Somme" ColumnName="Somme" />
+                <ScalarProperty Name="Nbr" ColumnName="Nbr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetVoyage" FunctionName="BDD_BOVoyage_IBAModel.Store.Sp_GetVoyage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.Sp_GetVoyage_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateDepart" ColumnName="DateDepart" />
+                <ScalarProperty Name="DateRetour" ColumnName="DateRetour" />
+                <ScalarProperty Name="Dispo" ColumnName="Dispo" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="TypeVoyage" ColumnName="TypeVoyage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetVoyageClient" FunctionName="BDD_BOVoyage_IBAModel.Store.Sp_GetVoyageClient">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.Sp_GetVoyageClient_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateDepart" ColumnName="DateDepart" />
+                <ScalarProperty Name="DateRetour" ColumnName="DateRetour" />
+                <ScalarProperty Name="Dispo" ColumnName="Dispo" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="IdRegion" ColumnName="IdRegion" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="TypeVoyage" ColumnName="TypeVoyage" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetVoyageur_Price" FunctionName="BDD_BOVoyage_IBAModel.Store.Sp_GetVoyageur_Price">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDD_BOVoyage_IBAModel.Sp_GetVoyageur_Price_Result">
+                <ScalarProperty Name="Somme" ColumnName="Somme" />
+                <ScalarProperty Name="Nbr" ColumnName="Nbr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_SetClient_Price" FunctionName="BDD_BOVoyage_IBAModel.Store.Sp_SetClient_Price" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

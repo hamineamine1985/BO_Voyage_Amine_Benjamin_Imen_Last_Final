@@ -1,0 +1,63 @@
+﻿@model BO_Voyage_UIL.Controllers.ViewFiltreModel
+
+<link href="~/Content/Marketing.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Detail_CampagneMarketing";
+    Layout = "~/Views/Shared/_Layout_Marketing.cshtml";
+
+}
+<h2>Sélectionnez les filtres</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <div class="jumbotron1">
+            <div class="row">
+                <hr />
+                <div class="col-sm-2" align="left">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.id)
+                    @Html.DropDownList("Continents", Model.Continents, "Continent", new { @class = "btn", @style = "width:180px; color:whitesmoke" })
+                </div>
+                <div class="col-sm-2" align="left">
+                    <div id="divPays">  </div>
+                </div>
+                <div class="col-sm-2" align="left">
+                    <div id="divRegs"></div>
+                </div>
+                <div class="col-sm-2" align="left">
+                    <div id="divC">  </div>
+                    <div id="divC">   @Html.DropDownList("Type", Model.Type, "Type de voyage", new { @class = "btn", @style = "width:180px; color:whitesmoke" }) </div>
+                </div>
+                <div class="col-sm-2" align="left">
+                    <div id="divC">  @Html.DropDownList("TrancheAge", Model.TrancheAge, "Tranche d'âge", new { @class = "btn", @style = "width:180px; color:whitesmoke" }) </div>
+                </div>
+            
+                <div class="col-sm-2" align="right">
+                    <input type="submit" value="Valider" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<div>
+    @Html.ActionLink("Page précédente", "CampagneMarketing")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@section AjaxScript{
+    <script>
+        var Controleur = "Marketing"
+    </script>
+    <script src="~/Scripts/Reserver.js"></script>
+}

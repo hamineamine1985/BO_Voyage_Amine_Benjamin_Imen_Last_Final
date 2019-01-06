@@ -1,0 +1,49 @@
+﻿body {
+    font-family: 'EB Garamond', serif;
+}
+/*Permet de colorer une ligne sur deux dans la liste donnée par les filtres*/
+.table {
+    margin-top: 100px;
+    background-color: rgba(223, 232, 248, 0.60);
+    border-radius: 20px;
+}
+
+
+.table tr:nth-child(2n+1) {
+    background-color: rgba(181, 212, 234, 0.40);
+}
+
+.table thead:first-child {
+    background-color: rgba(223, 232, 248, 0.70);
+}
+/*Permet de garder une image positionnée en arrière plan et fixe*/
+.imgfondfixe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.jumbotron {
+    background-color: rgba(181, 213, 242, 0.40);
+    border-radius: 20px;
+}
+
+    .jumbotron font-face:first-line {
+        font-family: 'Adobe Arabic';
+    }
+
+.wide {
+    align-self: center;
+    width: 150px;
+    background-color: rgba(223, 232, 248, 0.60);
+    border-radius: 10px;
+}
+/*Utilisé dans la fonction Jquery pour la liste déroulante*/
+wide.expand {
+    width: auto;
+}
+
+.custom-combo {
+    text-align: center;
+}

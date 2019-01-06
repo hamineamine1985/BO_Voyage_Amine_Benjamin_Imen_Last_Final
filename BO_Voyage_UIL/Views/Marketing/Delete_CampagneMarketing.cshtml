@@ -1,0 +1,60 @@
+﻿@model BO_Voyage_UIL.Models.CampaignModels
+
+<link href="~/Content/Marketing.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Delete_CampagneMarketing";
+    Layout = "~/Views/Shared/_Layout_Marketing.cshtml";
+}
+
+<h2>Supprimer campagne marketing en cours</h2>
+
+<h3>Confirmer suppression ?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreation)
+        </dd>
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.DateLimite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateLimite)
+        </dd>
+        <br />
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" style="margin-left:30%" />
+        </div>
+    }
+    @Html.ActionLink("Page précédente", "CampagneMarketing")
+</div>

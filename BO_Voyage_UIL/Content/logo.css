@@ -1,0 +1,11 @@
+﻿#logo {
+    background-size: 55px;
+    float: left;
+    background-position: -10px -51px;
+    margin-top: 3px;
+    margin-left: 100px;
+    width: 120px;
+    height: 43px;
+    background-color: whitesmoke;
+    border-radius: 45%;
+}
